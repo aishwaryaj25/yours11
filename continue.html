@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Continue with Python Project?</title>
+    <style>
+        @keyframes moveButton {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50px, 50px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        body {
+            background-color: powderblue; 
+            text-align: center; 
+            margin-top: 50px; 
+        }
+
+        .button {
+            text-decoration: none; 
+            display: inline-block; 
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .no-button {
+            background-color: #ff6969;
+            color: #fff;
+        }
+
+        .yes-button {
+            background-color: #69ff69;
+            color: #fff;
+        }
+
+        .button:hover {
+            animation-play-state: paused;
+        }
+
+        .button:hover:not(.no-button):not(.yes-button) {
+            background-color: #d13e8d;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Would you like to continue with this project in Python?</h1>
+    <button class="button no-button" onclick="moveNoButton(event)">No!</button>
+    <a class="button yes-button" href="appreciated.html" target="_blank">Yes!</a>
+
+    <script>
+        let animationTimeout;
+
+        function moveNoButton(event) {
+            const button = event.target;
+            button.style.animation = 'none'; 
+            clearTimeout(animationTimeout); 
+            button.style.animation = 'moveButton 3s infinite'; 
+
+           
+            animationTimeout = setTimeout(() => {
+                button.style.animation = 'none'; 
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
